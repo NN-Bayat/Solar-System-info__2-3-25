@@ -1,0 +1,471 @@
+/*========== Google fonts ==========*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+
+:root {
+  /*======= Main colors =======*/
+  --first-color: #222;
+  --second-color: #fff;
+
+  /*======= Background colors =======*/
+  --body-bg-color: #fefefe;
+  --light-gray-bg-color: #eee;
+
+  /*======= Other font colors =======*/
+  --light-gray-font-color: #dadcdd;
+  --dark-gray-font-color: #777;
+
+  /*======= Hover colors =======*/
+  --hover-red-color: #fe5578;
+  --hover-dark-color: #010101;
+
+  /*======= Transparent bg colors =======*/
+  --transparent-white-bg-color-01: rgba(255, 255, 255, 0.25);
+  --transparent-white-bg-color-02: rgba(255, 255, 255, 0.1);
+
+  /*======= Border color =======*/
+  --gray-border-color: #ccc;
+
+  /*======= Box shadow =======*/
+  --box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+
+  /*======= Card bg gradient colors =======*/
+  --mercury-bg: linear-gradient(45deg, #394147, #767f85);
+  --venus-bg: linear-gradient(45deg, #ac1013, #e37b62);
+  --earth-bg: linear-gradient(45deg, #005192, #0ea7eb);
+  --mars-bg: linear-gradient(45deg, #ad1c1f, #e57a35);
+  --jupiter-bg: linear-gradient(45deg, #ae5f4e, #e28482);
+  --saturn-bg: linear-gradient(45deg, #a04b36, #d1977c);
+  --uranus-bg: linear-gradient(45deg, #02396f, #0f81ad);
+  --neptune-bg: linear-gradient(45deg, #09225a, #4ab5e1);
+
+  /*======= Scroll bar colors =======*/
+  --scroll-bar-color: #f1f1f1;
+  --scroll-bar-thumb-color: #555;
+  --scroll-bar-thumb-hover-color: #444;
+}
+
+/*========== Main CSS ==========*/
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background: var(--body-bg-color);
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*========== Header CSS ==========*/
+header {
+  z-index: 888;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 100px;
+}
+
+/*===== Logo =====*/
+.logo a {
+  color: var(--first-color);
+  text-decoration: none;
+  user-select: none;
+}
+
+.logo .lg-font {
+  font-family: "Rancho", cursive;
+  font-size: 3.9em;
+  font-weight: 600;
+  margin-right: 3px;
+}
+
+.logo .sm-font {
+  font-size: 1.7em;
+  font-weight: 500;
+}
+
+/*===== Search box =====*/
+.search-container {
+  position: relative;
+}
+
+.search-box {
+  color: var(--dark-gray-font-color);
+  background: var(--light-gray-bg-color);
+  width: 310px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40px;
+  border-radius: 30px;
+}
+
+.search-box i {
+  font-size: 1em;
+}
+
+.search-box input {
+  font-size: 1em;
+  background: none;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+
+/*===== Main menu =====*/
+.menu-btn {
+  color: var(--first-color);
+  font-size: 1.1em;
+  font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.menu-btn:hover {
+  color: var(--hover-dark-color);
+}
+
+.menu-btn i {
+  margin-left: 5px;
+}
+
+.menu-container {
+  content-visibility: hidden;
+}
+
+.menu-container.active {
+  content-visibility: visible;
+}
+
+.menu-window {
+  position: absolute;
+  background: var(--transparent-white-bg-color-01);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.menu-window.active {
+  opacity: 1;
+}
+
+.menu-box {
+  position: relative;
+  background: var(--second-color);
+  box-shadow: var(--box-shadow);
+  width: 0;
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50px;
+}
+
+.menu-window.active .menu-box {
+  width: 600px;
+  height: fit-content;
+  min-height: 500px;
+  opacity: 1;
+  transition: opacity .3s, width .8s, height .8s, min-height .8s;
+}
+
+.menu-inner {
+  content-visibility: hidden;
+}
+
+.menu-inner.active {
+  content-visibility: visible;
+}
+
+.menu-close-btn {
+  position: absolute;
+  top: -40px;
+  right: 50px;
+  color: var(--first-color);
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.menu-close-btn:hover {
+  color: var(--hover-red-color);
+}
+
+.menu-close-btn i {
+  font-size: 1.3em;
+}
+
+.menu-close-btn span {
+  font-size: 1.1em;
+}
+
+.menu-bg-icon {
+  position: absolute;
+  font-size: 10em;
+  opacity: .03;
+  top: 10px;
+  left: 35px;
+  transform: rotate(-5deg);
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.menu-items a {
+  color: var(--first-color);
+  font-size: 1.05em;
+  font-weight: 400;
+  text-decoration: none;
+  transition: .3s ease;
+}
+
+.menu-items a:hover {
+  color: var(--hover-dark-color);
+  transform: scale(1.05);
+}
+
+.menu-items a i {
+  font-size: 1.3em;
+  margin-right: 5px;
+}
+
+/*========== Slider main CSS ==========*/
+.slide-container {
+  z-index: 777;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.swiper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*========== Slider cards CSS ==========*/
+.card {
+  position: relative;
+  width: 325px;
+  height: 250px;
+  border-radius: 25px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 50px;
+  user-select: none;
+}
+
+.mercury-bg {
+  background: var(--mercury-bg);
+}
+
+.card-img img {
+  z-index: 777;
+  position: absolute;
+  transition: .5s ease;
+  transition-delay: .1s;
+}
+
+.mercury-img {
+  width: 180px;
+  top: -45px;
+  right: 40px;
+}
+
+.card:hover .mercury-img {
+  transform: translateY(-40px) scale(1.1);
+}
+
+.card-img .planet-number {
+  z-index: 666;
+  position: absolute;
+  right: 0;
+  color: var(--second-color);
+  font-size: 12em;
+  font-weight: 700;
+  opacity: .1;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 35px;
+  left: 30px;
+}
+
+.card-content .info {
+  transform: translateY(30px);
+  transition: transform .5s ease;
+}
+
+.card:hover .card-content .info {
+  transform: translateY(-10px);
+}
+
+.card-content .info h2 {
+  color: var(--second-color);
+  font-size: 2.3em;
+  font-weight: 600;
+  line-height: 50px;
+}
+
+.card-content .sub-info {
+  display: flex;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.card-content .sub-info span {
+  color: var(--light-gray-font-color);
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.card-content .sub-info h4 {
+  color: var(--second-color);
+  font-weight: 500;
+}
+
+.card-content .read-more-btn {
+  transform: translateY(35px);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition: .3s ease-in-out, .5s;
+}
+
+.card:hover .card-content .read-more-btn {
+  transform: translateY(-10px);
+  opacity: 1;
+}
+
+.card-content .read-more-btn a {
+  color: var(--second-color);
+  font-size: .9em;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.card-content .read-more-btn a i {
+  font-size: 1.2em;
+  margin-left: 2px;
+  transition: .3s ease;
+}
+
+.card-content .read-more-btn a:hover i {
+  margin-left: 5px;
+}
+
+/*========== Slider navigation CSS ==========*/
+
+/*========== Main social media links CSS ==========*/
+
+/*========== Modals CSS ==========*/
+
+/*========== Media queries (max-width: 1220px) ==========*/
+@media screen and (max-width: 1220px) {
+  /*========== Modals CSS ==========*/
+}
+
+/*========== Media queries (max-width: 980px) ==========*/
+@media screen and (max-width: 980px) {
+  /*===== Search box =====*/
+}
+
+/*========== Media queries (max-width: 926px) ==========*/
+@media screen and (max-width: 926px) {
+  /*========== Slider navigation CSS ==========*/
+
+  /*========== Main social media links CSS ==========*/
+
+  /*========== Modals CSS ==========*/
+}
+
+/*========== Media queries (max-width: 750px) ==========*/
+@media screen and (max-width: 750px) {
+  /*========== Header CSS ==========*/
+
+  /*===== Logo =====*/
+
+  /*========== Modals CSS ==========*/
+}
+
+/*========== Media queries (max-width: 700px) ==========*/
+@media screen and (max-width: 700px) {
+  /*===== Main menu =====*/
+
+  /*========== Main social media links CSS ==========*/
+
+  /*========== Modals CSS ==========*/
+}
+
+/*========== Media queries (max-width: 450px) ==========*/
+@media screen and (max-width: 450px) {
+  /*===== Logo =====*/
+
+  /*===== Search box =====*/
+
+  /*===== Main menu =====*/
+
+  /*========== Modals CSS ==========*/
+}
+
+/*========== Media queries (max-width: 370px) ==========*/
+@media screen and (max-width: 370px) {
+  /*========== Header CSS ==========*/
+
+  /*===== Search box =====*/
+
+  /*===== Main menu =====*/
+
+  /*========== Slider cards CSS ==========*/
+
+  /*========== Modals CSS ==========*/
+}
