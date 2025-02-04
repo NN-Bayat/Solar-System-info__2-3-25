@@ -29,25 +29,44 @@ menuCloseBtn.addEventListener("click", () => {
 // Swiper slider
 var swiper = new Swiper(".cardSwiper", {
   slidesPerView: 1,
-  spaceBetween: 10,
+  spaceBetween: 20,
+  slideOffsetBefore: 0,
+  slideOffsetAfter: 0,
+  speed: 800,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  // breakpoints: {
-  //   640: {
-  //     slidesPerView: 2,
-  //     spaceBetween: 20,
-  //   },
-  //   768: {
-  //     slidesPerView: 4,
-  //     spaceBetween: 40,
-  //   },
-  //   1024: {
-  //     slidesPerView: 5,
-  //     spaceBetween: 50,
-  //   },
-  // },
+  breakpoints: {
+    710: {
+      slidesPerView: 2,
+      slideOffsetBefore: 30,
+    },
+    780: {
+      slidesPerView: 2.2,
+      slideOffsetBefore: 30,
+    },
+    885: {
+      slidesPerView: 2.5,
+      slideOffsetBefore: 30,
+      slideOffsetAfter: 100,
+    },
+    1070: {
+      slidesPerView: 3,
+      slideOffsetBefore: 30,
+      slideOffsetAfter: 100,
+    },
+    1280: {
+      slidesPerView: 3.7,
+      slideOffsetBefore: 30,
+      slideOffsetAfter: 100,
+    },
+    1560: {
+      slidesPerView: 4.4,
+      slideOffsetBefore: 30,
+      slideOffsetAfter: 100,
+    },
+  },
 });
 
 // Javascript to hide main webpage elemnts and open modal boxes on click read more button.
