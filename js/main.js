@@ -5,6 +5,15 @@ const menuWindow = document.querySelector(".menu-window");
 const menuInner = document.querySelector(".menu-inner");
 const menuCloseBtn = document.querySelector(".menu-close-btn");
 
+function closeFunc (){
+  setTimeout(() => {
+    menuContainer.classList.remove("active");
+  }, 500);
+
+  menuWindow.classList.remove("active");
+  menuInner.classList.remove("active");
+}
+
 menuBtn.addEventListener("click", () => {
   menuContainer.classList.add("active");
 
@@ -18,12 +27,13 @@ menuBtn.addEventListener("click", () => {
 });
 
 menuCloseBtn.addEventListener("click", () => {
-  setTimeout(() => {
-    menuContainer.classList.remove("active");
-  }, 500);
+  closeFunc();
+});
 
-  menuWindow.classList.remove("active");
-  menuInner.classList.remove("active");
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && menuContainer.classList.contains("active")) {
+    closeFunc();
+  }
 });
 
 // Swiper slider
