@@ -566,6 +566,87 @@ header {
 }
 
 /*========== Modals CSS ==========*/
+.modal-container{
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box{
+  position: absolute;
+  width: 90%;
+  height: 85%;
+  border-radius: 50px;
+  transform: translateY(15px);
+}
+
+.modal-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-close-btn{
+  position: absolute;
+  top: -40px;
+  right: 50px;
+  color: var(--first-color);
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal-close-btn i{
+  font-size: 1.3em;
+}
+
+.modal-close-btn span{
+  font-size: 1.1em;
+}
+
+.modal-inner{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
+  gap: 35px;
+  padding: 0 35px;
+}
+
+.modal-bg-title{
+  position: absolute;
+  width: 335px;
+  color: var(--second-color);
+  font-size: 5em;
+  font-weight: 800;
+  opacity: .15;
+  top: 50%;
+  left: 125px;
+  transform: rotate(-90deg) translateY(-50%);
+}
+
+.modal-media-icons{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50px);
+  row-gap: 25px;
+}
+
+.modal-img{
+  width: 300px;
+}
 
 /*========== Media queries (max-width: 1220px) ==========*/
 @media screen and (max-width: 1220px) {
