@@ -5,7 +5,7 @@ const menuWindow = document.querySelector(".menu-window");
 const menuInner = document.querySelector(".menu-inner");
 const menuCloseBtn = document.querySelector(".menu-close-btn");
 
-function closeFunc (){
+function closeFunc() {
   setTimeout(() => {
     menuContainer.classList.remove("active");
   }, 500);
