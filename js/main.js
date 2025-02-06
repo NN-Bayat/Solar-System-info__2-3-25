@@ -1,3 +1,5 @@
+"use strict";
+
 // Javascript to open and close the main menu.
 const menuBtn = document.querySelector(".menu-btn");
 const menuContainer = document.querySelector(".menu-container");
@@ -80,6 +82,31 @@ var swiper = new Swiper(".cardSwiper", {
 });
 
 // Javascript to hide main webpage elemnts and open modal boxes on click read more button.
+const header = document.querySelector("header");
+const sliderNav = document.querySelector(".slider-nav");
+const mainMediaLinks = document.querySelector(".main-media-links");
+
+const modalContainer = document.querySelector(".modal-container");
+const modalBoxes = document.querySelectorAll(".modal-box");
+const modalContents = document.querySelectorAll(".modal-content");
+
+const readMoreBtns = document.querySelectorAll(".read-more-btn");
+
+const modalOpen = (readMoreBtnClick) => {
+  header.classList.add("hide");
+  sliderNav.classList.add("hide");
+  mainMediaLinks.classList.add("hide");
+
+  modalContainer.classList.add("active");
+  modalBoxes[readMoreBtnClick].classList.add("active");
+  modalContents[readMoreBtnClick].classList.add("active");
+};
+
+readMoreBtns.forEach((readMoreBtn, i) => {
+  readMoreBtn.addEventListener("click", () => {
+    modalOpen(i);
+  });
+});
 
 // Javascript to show hidden main webpage elemnts and close modal boxes on click modal close button.
 
