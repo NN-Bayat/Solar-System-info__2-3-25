@@ -205,3 +205,33 @@ modalBoxes.forEach((modalBox) => {
 });
 
 // Javascript for search function.
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.querySelector(".search-input");
+  const searchResults = document.querySelector(".search-results");
+  const cardContainer = document.getElementById("cardContainer");
+
+  searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const matchingCards = Array.from(
+      cardContainer.getElementsByClassName("card")
+    ).filter((card) => card.dataset.title.toLowerCase().includes(searchTerm));
+
+    // Display search result in a dropdown.
+    searchResults.innerHTML = "";
+
+    matchingCards.forEach((card) => {
+      const link = document.createElement("a");
+
+      link.classList.add("search-result-link");
+      link.href = "#";
+      link.textContent = card.dataset.title;
+
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        openModal(card.dataset.title);
+      });
+
+      searchResults.appendChild(link);
+    });
+  });
+});
