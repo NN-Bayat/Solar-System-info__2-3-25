@@ -99,7 +99,10 @@ const modalOpen = (readMoreBtnClick) => {
 
   modalContainer.classList.add("active");
   modalBoxes[readMoreBtnClick].classList.add("active");
-  modalContents[readMoreBtnClick].classList.add("active");
+
+  setTimeout(() => {
+    modalContents[readMoreBtnClick].classList.add("active");
+  }, 2000);
 };
 
 readMoreBtns.forEach((readMoreBtn, i) => {
@@ -109,9 +112,96 @@ readMoreBtns.forEach((readMoreBtn, i) => {
 });
 
 // Javascript to show hidden main webpage elemnts and close modal boxes on click modal close button.
+const modalCloseBtns = document.querySelectorAll(".modal-close-btn");
+
+modalCloseBtns.forEach((modalCloseBtn) => {
+  modalCloseBtn.addEventListener("click", () => {
+    header.classList.remove("hide");
+    sliderNav.classList.remove("hide");
+    mainMediaLinks.classList.remove("hide");
+
+    modalContainer.classList.remove("active");
+
+    modalBoxes.forEach((modalBox) => {
+      modalBox.classList.remove("active");
+    });
+
+    modalContents.forEach((modalContent) => {
+      modalContent.classList.remove("active");
+    });
+  });
+});
 
 // Javascript to hide slider cards with a delay on click read more button.
+const swiperSlides = document.querySelectorAll(".swiper-slide");
+
+swiperSlides.forEach((swiperSlide) => {
+  const readMoreBtn = swiperSlide.querySelector(".read-more-btn");
+
+  readMoreBtn.addEventListener("click", () => {
+    function addHideClassWithDelay(elements) {
+      elements.forEach((element, index) => {
+        const delay = 150;
+
+        setTimeout(() => {
+          element.classList.add("hide");
+        }, index * delay);
+      });
+    }
+
+    const startingElement = document.querySelector(
+      ".swiper-slide.swiper-slide-active"
+    );
+
+    if (startingElement) {
+      const elements = document.querySelectorAll(".swiper-slide");
+      const elementArray = Array.from(elements);
+      const startingIndex = elementArray.indexOf(startingElement);
+      const elementToHide = elementArray.slice(startingIndex);
+
+      readMoreBtns.forEach((readMoreBtn) => {
+        readMoreBtn.addEventListener(
+          "click",
+          addHideClassWithDelay(elementToHide)
+        );
+      });
+    }
+  });
+});
 
 // Javascript to show hidden slider cards with a delay on click modal close button.
+modalBoxes.forEach((modalBox) => {
+  const modalCloseBtn = modalBox.querySelector(".modal-close-btn");
+
+  modalCloseBtn.addEventListener("click", () => {
+    function removeHideClassWithDelay(elements) {
+      elements.forEach((element, index) => {
+        const delay = 150;
+
+        setTimeout(() => {
+          element.classList.remove("hide");
+        }, index * delay);
+      });
+    }
+
+    const startingElement = document.querySelector(
+      ".swiper-slide.swiper-slide-active"
+    );
+
+    if (startingElement) {
+      const elements = document.querySelectorAll(".swiper-slide");
+      const elementArray = Array.from(elements);
+      const startingIndex = elementArray.indexOf(startingElement);
+      const elementToShow = elementArray.slice(startingIndex);
+
+      modalCloseBtns.forEach((modalCloseBtn) => {
+        modalCloseBtn.addEventListener(
+          "click",
+          removeHideClassWithDelay(elementToShow)
+        );
+      });
+    }
+  });
+});
 
 // Javascript for search function.
