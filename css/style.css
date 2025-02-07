@@ -293,6 +293,16 @@ header.hide {
   display: flex;
   justify-content: center;
   align-items: end;
+  transform: translateY(0);
+  opacity: 1;
+  transition: 0.5s ease;
+  transition-property: transform, opacity;
+  transition-delay: 0.25s;
+}
+
+.swiper-slide.hide {
+  transform: translateY(30px);
+  opacity: 0;
 }
 
 /*========== Slider cards CSS ==========*/
@@ -633,12 +643,17 @@ header.hide {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity .25s ease;
+  content-visibility: hidden;
+  transition: opacity 0.25s ease;
   transition-delay: 2s;
 }
 
 .modal-box.active .modal-content {
   opacity: 1;
+}
+
+.modal-content.active {
+  content-visibility: visible;
 }
 
 .modal-close-btn {
