@@ -37,6 +37,7 @@
               placeholder="Search Planets..."
             />
           </div>
+          <div class="search-results"></div>
         </div>
         <div class="main-menu">
           <a class="menu-btn"><span>Menu</span><i class="uil uil-apps"></i></a>
@@ -65,10 +66,10 @@
       <!--========== Card slider ==========-->
       <div class="slide-container">
         <div class="swiper cardSwiper">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper" id="cardContainer">
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card mercury-bg">
+              <div class="card mercury-bg" data-title="mercury">
                 <div class="card-img">
                   <img src="images/mercury.png" alt="" class="mercury-img" />
                   <span class="planet-number">1</span>
@@ -94,7 +95,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card venus-bg">
+              <div class="card venus-bg" data-title="venus">
                 <div class="card-img">
                   <img src="images/venus.png" alt="" class="venus-img" />
                   <span class="planet-number">2</span>
@@ -120,7 +121,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card earth-bg">
+              <div class="card earth-bg" data-title="earth">
                 <div class="card-img">
                   <img src="images/earth.png" alt="" class="earth-img" />
                   <span class="planet-number">3</span>
@@ -146,7 +147,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card mars-bg">
+              <div class="card mars-bg" data-title="mars">
                 <div class="card-img">
                   <img src="images/mars.png" alt="" class="mars-img" />
                   <span class="planet-number">4</span>
@@ -172,7 +173,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card jupiter-bg">
+              <div class="card jupiter-bg" data-title="jupiter">
                 <div class="card-img">
                   <img src="images/jupiter.png" alt="" class="jupiter-img" />
                   <span class="planet-number">5</span>
@@ -198,7 +199,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card saturn-bg">
+              <div class="card saturn-bg"  data-title="saturn">
                 <div class="card-img">
                   <img src="images/saturn.png" alt="" class="saturn-img" />
                   <span class="planet-number">6</span>
@@ -224,7 +225,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card uranus-bg">
+              <div class="card uranus-bg" data-title="uranus">
                 <div class="card-img">
                   <img src="images/uranus.png" alt="" class="uranus-img" />
                   <span class="planet-number">7</span>
@@ -250,7 +251,7 @@
             <!--========== Slide card end ==========-->
             <!--========== Slide card start ==========-->
             <div class="swiper-slide">
-              <div class="card neptune-bg">
+              <div class="card neptune-bg" data-title="neptune">
                 <div class="card-img">
                   <img src="images/neptune.png" alt="" class="neptune-img" />
                   <span class="planet-number">8</span>
