@@ -1145,24 +1145,24 @@ header.hide {
     font-size: 1em;
   }
 
-  .modal-media-icons{
+  .modal-media-icons {
     margin-right: 22px;
   }
 
-  .modal-media-icons a{
+  .modal-media-icons a {
     font-size: 1.2em;
   }
 
-  .modal-img{
+  .modal-img {
     max-width: none;
     width: 200px;
   }
 
-  .planet-facts{
+  .planet-facts {
     width: 100%;
   }
 
-  .planet-facts .fact{
+  .planet-facts .fact {
     width: 100%;
     padding: 15px;
   }
