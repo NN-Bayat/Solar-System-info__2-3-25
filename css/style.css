@@ -138,6 +138,30 @@ header.hide {
   padding-left: 10px;
 }
 
+.search-results {
+  display: none;
+  position: absolute;
+  background: var(--second-color);
+  border: 1px solid var(--gray-border-color);
+  width: 100%;
+  max-height: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.search-results a {
+  display: block;
+  color: var(--first-color);
+  font-size: 1em;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.search-results a:hover {
+  background: var(--light-gray-bg-color);
+}
+
 /*===== Main menu =====*/
 .menu-btn {
   color: var(--first-color);
@@ -845,60 +869,301 @@ header.hide {
 /*========== Media queries (max-width: 1220px) ==========*/
 @media screen and (max-width: 1220px) {
   /*========== Modals CSS ==========*/
+  .planet-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /*========== Media queries (max-width: 980px) ==========*/
 @media screen and (max-width: 980px) {
   /*===== Search box =====*/
+  .search-container {
+    position: absolute;
+    transform: translateY(90px);
+  }
+
+  /* ===== Modal CSS ===== */
+  .planet-facts {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /*========== Media queries (max-width: 926px) ==========*/
 @media screen and (max-width: 926px) {
   /*========== Slider navigation CSS ==========*/
+  .slider-nav {
+    right: 100px;
+  }
 
   /*========== Main social media links CSS ==========*/
+  .main-media-links {
+    left: 80px;
+  }
 
   /*========== Modals CSS ==========*/
+  .modal-inner {
+    align-items: center;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .modal-bg-title {
+    display: none;
+  }
+
+  .modal-media-icons {
+    top: 0;
+    left: unset;
+    right: 0;
+    transform: translateY(50px);
+    margin-right: 50px;
+  }
+
+  .modal-img {
+    width: 250px;
+  }
+
+  .modal-text-content {
+    margin: 0 0 50px 0;
+  }
 }
 
 /*========== Media queries (max-width: 750px) ==========*/
 @media screen and (max-width: 750px) {
   /*========== Header CSS ==========*/
+  header {
+    padding: 50px 30px;
+  }
 
   /*===== Logo =====*/
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .logo .lg-font {
+    font-size: 3.5em;
+  }
+
+  .logo .sm-font {
+    font-size: 1.5em;
+  }
 
   /*========== Modals CSS ==========*/
+  .modal-inner {
+    align-items: start;
+  }
+
+  .modal-text-content p {
+    font-size: 0.9em;
+  }
 }
 
 /*========== Media queries (max-width: 700px) ==========*/
 @media screen and (max-width: 700px) {
   /*===== Main menu =====*/
+  .menu-window.active .menu-box {
+    width: 90%;
+  }
+
+  /*========== Slider navegation CSS ==========*/
+  .slider-nav {
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
 
   /*========== Main social media links CSS ==========*/
+  .main-media-links {
+    bottom: 10px;
+    left: 25px;
+    font-size: 0.9em;
+    column-gap: 25px;
+  }
 
   /*========== Modals CSS ==========*/
+  .menu-inner {
+    padding: 0 25px;
+  }
+
+  .modal-media-icons {
+    margin-left: 40px;
+  }
+
+  .modal-img {
+    max-width: 100%;
+  }
 }
 
 /*========== Media queries (max-width: 450px) ==========*/
 @media screen and (max-width: 450px) {
+  /*========== Header CSS ==========*/
+  header {
+    padding: 25px 17px;
+  }
+
   /*===== Logo =====*/
+  .logo a {
+    white-space: nowrap;
+  }
+
+  .logo .lg-font {
+    font-size: 3.2em;
+  }
+
+  .logo .sm-font {
+    font-size: 1.4em;
+  }
 
   /*===== Search box =====*/
+  .search-container {
+    transform: translateY(80px) translateX(-50%);
+    left: 50%;
+  }
 
   /*===== Main menu =====*/
+  .menu-btn {
+    font-size: 1em;
+  }
+
+  .menu-box {
+    border-radius: 25px;
+  }
+
+  .menu-close-btn {
+    right: 30px;
+  }
+
+  .menu-bg-icon {
+    font-size: 7em;
+  }
+
+  .menu-items {
+    row-gap: 35px;
+  }
 
   /*========== Modals CSS ==========*/
+  .modal-box {
+    border-radius: 25px;
+  }
+
+  .modal-close-btn {
+    right: 20px;
+  }
+
+  .modal-media-icons {
+    transform: translateY(25px);
+    margin-right: 30px;
+    row-gap: 15px;
+  }
+
+  .modal-media-icons a {
+    font-size: 1.3em;
+  }
+
+  .modal-image-area {
+    margin-right: 70px;
+  }
+
+  .modal-title {
+    font-size: 2.3em;
+  }
+
+  .modal-title-sub span {
+    font-size: 0.9em;
+  }
+
+  .modal-title-sub h4 {
+    font-size: 0.9em;
+  }
+
+  .modal-text-content p {
+    font-size: 0.85em;
+  }
+
+  .planet-facts .fact h5 {
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+
+  .planet-facts .fact span {
+    font-size: 0.9em;
+    font-weight: 400;
+  }
 }
 
 /*========== Media queries (max-width: 370px) ==========*/
 @media screen and (max-width: 370px) {
-  /*========== Header CSS ==========*/
-
   /*===== Search box =====*/
+  .search-container {
+    width: 90%;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 80%;
+  }
 
   /*===== Main menu =====*/
+  .menu-btn span {
+    display: none;
+  }
+
+  .menu-btn i {
+    font-size: 1.2em;
+  }
+
+  .menu-close-btn i {
+    font-size: 1.2em;
+  }
+
+  .menu-close-btn span {
+    font-size: 1em;
+  }
+
+  .menu-items a {
+    font-size: 1em;
+  }
+
+  .menu-items a i {
+    font-size: 1.2em;
+  }
 
   /*========== Slider cards CSS ==========*/
+  .card {
+    width: 90%;
+  }
 
   /*========== Modals CSS ==========*/
+  .modal-close-btn i {
+    font-size: 1.4em;
+  }
+
+  .modal-close-btn span {
+    font-size: 1em;
+  }
+
+  .modal-media-icons{
+    margin-right: 22px;
+  }
+
+  .modal-media-icons a{
+    font-size: 1.2em;
+  }
+
+  .modal-img{
+    max-width: none;
+    width: 200px;
+  }
+
+  .planet-facts{
+    width: 100%;
+  }
+
+  .planet-facts .fact{
+    width: 100%;
+    padding: 15px;
+  }
 }
