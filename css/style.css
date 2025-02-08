@@ -1092,7 +1092,7 @@ header.hide {
 }
 
 /*========== Media queries (max-width: 370px) ==========*/
-@media screen and(max-width: 370px) {
+@media screen and (max-width: 370px) {
   /*===== Search box =====*/
   .search-container {
     width: 90%;
