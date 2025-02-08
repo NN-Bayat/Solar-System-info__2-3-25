@@ -233,5 +233,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
       searchResults.appendChild(link);
     });
+
+    if (matchingCards.length > 0) {
+      searchResults.style.display = "block";
+    } else {
+      searchResults.style.display = "none";
+    }
+  });
+
+  // Function to open modals that match each search reesult.
+  function openModal(cardTitle) {
+    const modalToOpen = document.getElementById(
+      `modal_${cardTitle.replace(/\s/g, "")}`
+    );
+
+    if (modalToOpen) {
+      modalToOpen.classList.add("active");
+
+      header.classList.add("hide");
+      sliderNav.classList.add("hide");
+      mainMediaLinks.classList.add("hide");
+
+      modalContainer.classList.add("active");
+
+      //  Show opening modal content with a delay.
+      const thisModalContent = modalToOpen.querySelector(".modal-content");
+      setTimeout(() => {
+        thisModalContent.classList.add("active");
+      }, 2000);
+
+      // Hide slider cards with a delay on click search result.
+      function addHideClassWithDelay(elements) {
+        elements.forEach((element, index) => {
+          const delay = 150;
+
+          setTimeout(() => {
+            element.classList.add("hide");
+          }, index * delay);
+        });
+      }
+
+      const startingElement = document.querySelector(
+        ".swiper-slide.swiper-slide-active"
+      );
+
+      if (startingElement) {
+        const elements = document.querySelectorAll(".swiper-slide");
+        const elementArray = Array.from(elements);
+        const startingIndex = elementArray.indexOf(startingElement);
+        const elementToHide = elementArray.slice(startingIndex);
+
+        const searchResultLinks = document.querySelectorAll(
+          ".search-result-link"
+        );
+
+        searchResultLinks.forEach((searchResultLink) => {
+          searchResultLink.addEventListener(
+            "click",
+            addHideClassWithDelay(elementToHide)
+          );
+        });
+      }
+
+      // Clear the search input text on modal opening.
+      searchInput.value = "";
+    }
+  }
+
+  // Hide search results if the search input value is 0 (empty).
+  searchInput.addEventListener("input", () => {
+    if (searchInput.value.length === 0) {
+      searchResults.style.display = "none";
+    }
+  });
+
+  // Hide search results when clicking outside the search container.
+  document.addEventListener("click", (event) => {
+    if (!event.target.matches("#searchInput")) {
+      searchResults.style.display = "none";
+    }
   });
 });
